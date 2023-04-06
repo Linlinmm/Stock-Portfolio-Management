@@ -1,1 +1,6 @@
 # Stock-Portfolio-Management
+## Models
+`/training/models.py`: the policy network framework  
+`/trainin/module.py`: implementation of dual channel hypergraph attention module  
+`/training/batch_loss.py`: Calculate cumulative reporting and related revenue metrics  
+`/training/train.py`: train this project  
