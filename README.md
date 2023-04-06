@@ -1,4 +1,6 @@
 # Stock-Portfolio-Management
+##Data
+Data in Stock Portfolio Management data
 ## Models
 `/training/models.py`: the policy network framework  
 `/trainin/module.py`: implementation of dual channel hypergraph attention module  
