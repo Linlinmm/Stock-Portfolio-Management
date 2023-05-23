@@ -32,8 +32,7 @@ class InfoNCE_Loss(nn.Module):
             out_i_k = torch.unsqueeze(out_i_k, 1)
 
             positive = torch.exp(torch.matmul(out_i, out_i_k.transpose(2, 1).contiguous()) / temp).squeeze()
-            negative1 = torch.sum(torch.exp(torch.matmul(out_i, index_b.transpose(2, 1).contiguous()) / temp), dim=-1).squeeze()
-            negative = torch.sum(positive+negative1)
+            negative = torch.sum(torch.exp(torch.matmul(out_i, index_b.transpose(2, 1).contiguous()) / temp), dim=-1).squeeze()
             nce_loss = -torch.log(positive / negative)
             nce_loss = torch.sum(nce_loss)
 
@@ -81,8 +80,7 @@ class InfoNCE_Loss1(nn.Module):
 
             positive = torch.exp(torch.matmul(out_i, out_i_k.transpose(2, 1).contiguous()) / temp).squeeze()
 
-            negative1 = torch.sum(torch.exp(torch.matmul(out_i, index_b.transpose(2, 1).contiguous()) / temp), dim=-1).squeeze()
-            negative = torch.sum(positive+negative1)
+            negative = torch.sum(torch.exp(torch.matmul(out_i, index_b.transpose(2, 1).contiguous()) / temp), dim=-1).squeeze()
             nce_loss = -torch.log(positive / negative)
             nce_loss = torch.sum(nce_loss)
 
