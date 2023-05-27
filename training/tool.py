@@ -65,7 +65,7 @@ def train_epoch(model,training_data, optimizer, device, smoothing, args):
         G2 = G2.to(device)
 
         optimizer.zero_grad()
-        out = model(Eod,  G2,G1, out_init, args.hidden)
+        out,info_loss,info_loss1 = model(Eod,  G2,G1, out_init, args.hidden)
 
         loss, portfolio_value, SR, MDD= loss_func(out, Gt)
         out=out.permute(0, 2, 1)
