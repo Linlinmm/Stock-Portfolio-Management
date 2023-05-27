@@ -21,6 +21,8 @@ class HGAT(nn.Module):
 
         x1 = self.attention1(x, G1)
         x2=self.attention2(x, G2)
+        info_loss = info_loss_func(x1, adj)
+        info_loss1 = info_loss_func1(x2, H)
         x=x1+x2
         x = F.dropout(x, self.dropout, training=self.training)
 
