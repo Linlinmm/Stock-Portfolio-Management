@@ -26,6 +26,6 @@ class HGAT(nn.Module):
         x=x1+x2
         x = F.dropout(x, self.dropout, training=self.training)
 
-        return x
+        return x,info_loss,info_loss1
 
 
