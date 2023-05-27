@@ -69,8 +69,7 @@ def train_epoch(model,training_data, optimizer, device, smoothing, args):
 
         loss, portfolio_value, SR, MDD= loss_func(out, Gt)
         out=out.permute(0, 2, 1)
-        info_loss = info_loss_func(out, adj)
-        info_loss1 = info_loss_func1(out, H)
+        
 
         total_loss = loss + info_loss / lamb+ info_loss1 / lamb
 
