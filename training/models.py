@@ -46,7 +46,7 @@ class HGAM(nn.Module):
         rnn_output = rnn_output[:, -1, :]
         enc_output = torch.reshape(rnn_output, (batch, stock, -1))
 
-        HGAT_output = self.HGAT(enc_output,G2,G1)
+        HGAT_output,info_loss,info_loss1 = self.HGAT(enc_output,G2,G1)
 
         HGAT_output = torch.reshape(HGAT_output, (batch*stock, -1))
 
@@ -59,4 +59,4 @@ class HGAM(nn.Module):
         final_out = out
         final_out=F.softmax(final_out, dim=-1)
 
-        return final_out
+        return final_out,info_loss,info_loss1
