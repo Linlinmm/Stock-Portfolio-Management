@@ -28,7 +28,7 @@ class InfoNCE_Loss(nn.Module):
             out_i = HGAT_output[:, i, :]
             out_i = torch.unsqueeze(out_i, 1)
 
-            out_i_k = HGAT_output[:, i, :]
+            out_i_k = HGAT_output[:, i, :]#co1vd
             out_i_k = torch.unsqueeze(out_i_k, 1)
 
             positive = torch.exp(torch.matmul(out_i, out_i_k.transpose(2, 1).contiguous()) / temp).squeeze()
@@ -75,7 +75,7 @@ class InfoNCE_Loss1(nn.Module):
             out_i = HGAT_output[:, i, :]
             out_i = torch.unsqueeze(out_i, 1)
 
-            out_i_k = HGAT_output[:, i, :]
+            out_i_k = HGAT_output[:, i, :]#cov1d
             out_i_k = torch.unsqueeze(out_i_k, 1)
 
             positive = torch.exp(torch.matmul(out_i, out_i_k.transpose(2, 1).contiguous()) / temp).squeeze()
